@@ -1,0 +1,55 @@
+1. What is the Prefix Sum Pattern?
+
+The Prefix Sum of an array is a technique where you create a new array (or use a data structure)
+to store cumulative sums of elements from the start up to each index. Formally, for an array arr[]
+of size n, its prefix sum array prefix[] is defined as:
+prefix[i]=arr[0]+arr[1]+...+arr[i]
+for 0≤i<n0
+
+2. Why use Prefix Sum?
+
+Prefix sums help quickly compute the sum of elements in any contiguous subarray in O(1) time
+after an O(n) preprocessing step.
+Without prefix sums: Sum of elements from index i to j is computed by looping from i to j,
+which is O(j - i + 1).
+With prefix sums: Sum of elements from index i to j is:
+sum(i,j)=prefix[j]−prefix[i−1]. (i>0)
+or simply
+prefix[j] (i=0)
+which is O(1).
+
+3. How to Compute Prefix Sum?
+
+Given an array arr of size n:
+int[] prefix = new int[n];
+prefix[0] = arr[0];
+for (int i = 1; i < n; i++) {
+prefix[i] = prefix[i - 1] + arr[i];
+}
+
+4. Where can Prefix Sum be applied?
+
+Prefix sums are useful in many types of problems such as:
+Range sum queries: Quickly compute sum of elements in subarrays multiple times.
+Number of elements in a range satisfying a condition.
+Finding subarrays with a certain sum.
+2D prefix sums for matrix sub-rectangle sums.
+Difference arrays and range update queries.
+Problems involving cumulative frequencies, histograms, or quick summation checks.
+
+5. How to identify problems where Prefix Sum applies?
+
+Look for questions that:
+Ask for sum of elements in a range/subarray multiple times.
+Need fast repeated sum queries after an initial array is given.
+Need to find number of subarrays satisfying certain sum-related properties.
+Involve checking sums quickly without recalculating sums for overlapping parts.
+Deal with prefix-based conditions, such as count of elements or cumulative constraints.
+
+6. Benefits of Prefix Sum Pattern
+
+Reduces repeated work in sum calculations.
+Transforms O(n^2) range sum queries into O(n) preprocessing + O(1) query.
+Simplifies problem logic by leveraging precomputed cumulative data.
+Helps in solving problems related to subarray sums, histogram calculations, and range
+queries efficiently.
